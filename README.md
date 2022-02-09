@@ -11,7 +11,7 @@
 <b>1- windows or linux or android (termux)</b><br>
 <b>2- git</b><br>
 <b>3- nodejs</b><br>
-<b>4- token @botfather</b> <a href="https://t.me/botfather">Link</a><br>
+<b>4- api_id and api_hash</b> <a href="https://my.telegram.org/auth">Link</a><br>
 
 ### أوامر التثبيت لنظام Ubuntu , Linux Mint , Debian [ terminal ]
 
