@@ -55,6 +55,7 @@ async function auto_reply() {
             client.setParseMode("html");
     
             let dialogs_client = await client.getDialogs({})
+            let getReply = await event.message.getReplyMessage();
             let dialogs = dialogs_client[0];
             let chat_id = dialogs.id; 
            // let from_id = event.message.fromId !== null ? event.message.fromId.userId : event.message.peerId.userId ? event.message.peerId.userId : null;
@@ -73,28 +74,36 @@ async function auto_reply() {
  
             }
 
-            else if (reply && body) {
+            else if (getReply && getReply.media === null) {
 
-                let httpx = body.includes('http') === false && reply.includes('http') === false;
-    
-                if (body.length <= 150 && reply.length <= 150 && reply.length >= 5 && httpx && body.includes('@') === false && reply.includes('@') === false) {
-    
-                    await sleep(2000);
-                    let json = fs.readJsonSync('./db/auto_reply.json');
-                    let json_array =  Object.keys(json);
-    
-                    if (json_array.includes(reply) === false) {
-                    
-                        await fs.writeJson('./db/auto_reply.json', Object.assign({}, json, { [reply]: { "reply": [body]} }), { spaces: '\t' });
-    
-                    }
-    
-                    else if (json_array.includes(reply) === true) {
-    
-                        if (json[reply].reply.includes(body) === false) {
-    
-                            json[reply].reply.push(body);
-                            await fs.writeJson('./db/auto_reply.json', json, { spaces: '\t' });
+                let reply = getReply.message !== '' ? getReply.message : false;
+                let body = event.message.text !== '' ? event.message.text : false;
+
+                if (reply && body) {
+
+                    let httpx = body.includes('http') === false && reply.includes('http') === false;
+
+                    if (body.length <= 150 && reply.length <= 150 && reply.length >= 5 && httpx && body.includes('@') === false && reply.includes('@') === false) {
+
+                        await sleep(2000);
+                        let json = fs.readJsonSync('./db/auto_reply.json');
+                        let json_array =  Object.keys(json);
+                       // await sleep(2000);
+
+                        if (json_array.includes(reply) === false) {
+                        
+                            await fs.writeJson('./db/auto_reply.json', Object.assign({}, json, { [reply]: { "reply": [body]} }), { spaces: '\t' });
+
+                        }
+        
+                        else if (json_array.includes(reply) === true) {
+        
+                            if (json[reply].reply.includes(body) === false) {
+        
+                                json[reply].reply.push(body);
+                                await fs.writeJson('./db/auto_reply.json', json, { spaces: '\t' });
+                                
+                            }
                             
                         }
                         
@@ -102,7 +111,7 @@ async function auto_reply() {
                     
                 }
                 
-            }y
+            }
     
         }
 
