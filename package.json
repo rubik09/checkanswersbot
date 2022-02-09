@@ -1,0 +1,17 @@
+{
+  "name": "auto_reply_bot",
+  "version": "1.0.0",
+  "description": "بوت الرد التلقائي للتيليجرام",
+  "main": "index.js",
+  "author": "rn0x",
+  "license": "AGPL-3.0",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "type": "commonjs",
+  "dependencies": {
+    "fs-extra": "^10.0.0",
+    "input": "^1.0.1",
+    "telegram": "^2.4.6"
+  }
+}
