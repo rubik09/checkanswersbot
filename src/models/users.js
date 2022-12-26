@@ -6,7 +6,7 @@ class User {
   }
 
   async createTableUsers() {
-    return this.sql.query(`CREATE TABLE users IF NOT EXISTS (id INT AUTO_INCREMENT PRIMARY KEY, userId VARCHAR(255) DEFAULT "", username VARCHAR(255) DEFAULT "") ENGINE=InnoDB AUTO_INCREMENT=76395 DEFAULT CHARSET=utf8mb4;`);
+    return this.sql.query('CREATE TABLE users IF NOT EXISTS (id INT AUTO_INCREMENT PRIMARY KEY, userId VARCHAR(255) DEFAULT "", username VARCHAR(255) DEFAULT "") ENGINE=InnoDB AUTO_INCREMENT=76395 DEFAULT CHARSET=utf8mb4;');
   }
 
   async getUserId(userId) {
@@ -33,16 +33,16 @@ class User {
     return this.sql.query('SELECT stage3 FROM users WHERE userId=?', [`${userId}`]);
   }
 
-  async changeStage1Status (userId) {
-    return this.sql.query ('UPDATE users SET stage1=? WHERE userId=?', ['+', `${userId}`]);
+  async changeStage1Status(userId) {
+    return this.sql.query('UPDATE users SET stage1=? WHERE userId=?', ['+', `${userId}`]);
   }
 
-  async changeStage2Status (userId) {
-    return this.sql.query ('UPDATE users SET stage2=? WHERE userId=?', ['+', `${userId}`]);
+  async changeStage2Status(userId) {
+    return this.sql.query('UPDATE users SET stage2=? WHERE userId=?', ['+', `${userId}`]);
   }
 
-  async changeStage3Status (userId) {
-    return this.sql.query ('UPDATE users SET stage3=? WHERE userId=?', ['+', `${userId}`]);
+  async changeStage3Status(userId) {
+    return this.sql.query('UPDATE users SET stage3=? WHERE userId=?', ['+', `${userId}`]);
   }
 }
 
