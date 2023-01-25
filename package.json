@@ -1,29 +1,29 @@
 {
-  "name": "auto_reply_bot",
-  "version": "1.0.0",
-  "description": "replies to messages",
-  "main": "index.js",
-  "author": "",
-  "license": "ISC",
-  "scripts": {
-    "start": "node --es-module-specifier-resolution=node --experimental-modules src/index.js",
-    "dev": "nodemon --es-module-specifier-resolution=node --experimental-modules src/index.js",
-    "eslint": "./node_modules/.bin/eslint .",
-    "eslint:fix": "./node_modules/.bin/eslint . --fix"
-  },
-  "type": "module",
-  "dependencies": {
-    "dotenv": "^16.0.3",
-    "fs-extra": "^10.0.0",
-    "input": "^1.0.1",
-    "mysql": "^2.18.1",
-    "node-telegram-bot-api": "^0.60.0",
-    "promise-fs": "^2.1.1",
-    "telegram": "^2.4.6"
-  },
-  "devDependencies": {
-    "eslint": "^8.29.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.26.0"
+    "name": "tgbot",
+    "version": "1.0.0",
+    "description": "telegram bot",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+      "start": "node --es-module-specifier-resolution=node --experimental-modules src/index.js",
+      "dev": "nodemon --es-module-specifier-resolution=node --experimental-modules src/index.js",
+      "eslint": "./node_modules/.bin/eslint .",
+      "eslint:fix": "./node_modules/.bin/eslint . --fix"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "dotenv": "^16.0.3",
+      "mysql": "^2.18.1",
+      "node-cron": "^3.0.2",
+      "node-telegram-bot-api": "^0.58.0",
+      "nodemon": "^2.0.19",
+      "promise-fs": "^2.1.1"
+    },
+    "devDependencies": {
+      "eslint": "^8.29.0",
+      "eslint-config-airbnb-base": "^15.0.0",
+      "eslint-plugin-import": "^2.26.0"
+    }
   }
-}
+  
